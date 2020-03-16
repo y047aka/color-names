@@ -81,326 +81,217 @@ view _ =
                             , th [] [ text "HSL" ]
                             ]
                         ]
-                    , let
-                        tableRow cl =
-                            tr
-                                [ css
-                                    [ backgroundColor (fromHslaColor cl.color)
-                                    , if (cl.color |> toHsla |> .lightness) > 0.45 then
-                                        color (hsl 0 0 0.2)
-
-                                      else
-                                        color (hsl 0 0 1)
-                                    ]
-                                ]
-                                [ td [] [ text cl.name ]
-                                , td []
-                                    [ let
-                                        { hue, saturation, lightness } =
-                                            toHsla cl.color
-                                      in
-                                      text (toCssString cl.color)
-                                    ]
-                                ]
-                      in
-                      tbody [] <|
+                    , tbody [] <|
                         List.map tableRow
-                            [ { color = aliceblue
-                              , name = "aliceblue"
+                            [ { color = white
+                              , name = "white"
                               }
-                            , { color = antiquewhite
-                              , name = "antiquewhite"
-                              }
-                            , { color = aqua
-                              , name = "aqua"
-                              }
-                            , { color = aquamarine
-                              , name = "aquamarine"
-                              }
-                            , { color = azure
-                              , name = "azure"
-                              }
-                            , { color = beige
-                              , name = "beige"
-                              }
-                            , { color = bisque
-                              , name = "bisque"
-                              }
-                            , { color = black
-                              , name = "black"
-                              }
-                            , { color = blanchedalmond
-                              , name = "blanchedalmond"
-                              }
-                            , { color = blue
-                              , name = "blue"
-                              }
-                            , { color = blueviolet
-                              , name = "blueviolet"
-                              }
-                            , { color = brown
-                              , name = "brown"
-                              }
-                            , { color = burlywood
-                              , name = "burlywood"
-                              }
-                            , { color = cadetblue
-                              , name = "cadetblue"
-                              }
-                            , { color = chartreuse
-                              , name = "chartreuse"
-                              }
-                            , { color = chocolate
-                              , name = "chocolate"
-                              }
-                            , { color = coral
-                              , name = "coral"
-                              }
-                            , { color = cornflowerblue
-                              , name = "cornflowerblue"
-                              }
-                            , { color = cornsilk
-                              , name = "cornsilk"
-                              }
-                            , { color = crimson
-                              , name = "crimson"
-                              }
-                            , { color = cyan
-                              , name = "cyan"
-                              }
-                            , { color = darkblue
-                              , name = "darkblue"
-                              }
-                            , { color = darkcyan
-                              , name = "darkcyan"
-                              }
-                            , { color = darkgoldenrod
-                              , name = "darkgoldenrod"
-                              }
-                            , { color = darkgray
-                              , name = "darkgray"
-                              }
-                            , { color = darkgreen
-                              , name = "darkgreen"
-                              }
-                            , { color = darkgrey
-                              , name = "darkgrey"
-                              }
-                            , { color = darkkhaki
-                              , name = "darkkhaki"
-                              }
-                            , { color = darkmagenta
-                              , name = "darkmagenta"
-                              }
-                            , { color = darkolivegreen
-                              , name = "darkolivegreen"
-                              }
-                            , { color = darkorange
-                              , name = "darkorange"
-                              }
-                            , { color = darkorchid
-                              , name = "darkorchid"
-                              }
-                            , { color = darkred
-                              , name = "darkred"
-                              }
-                            , { color = darksalmon
-                              , name = "darksalmon"
-                              }
-                            , { color = darkseagreen
-                              , name = "darkseagreen"
-                              }
-                            , { color = darkslateblue
-                              , name = "darkslateblue"
-                              }
-                            , { color = darkslategray
-                              , name = "darkslategray"
-                              }
-                            , { color = darkslategrey
-                              , name = "darkslategrey"
-                              }
-                            , { color = darkturquoise
-                              , name = "darkturquoise"
-                              }
-                            , { color = darkviolet
-                              , name = "darkviolet"
-                              }
-                            , { color = deeppink
-                              , name = "deeppink"
-                              }
-                            , { color = deepskyblue
-                              , name = "deepskyblue"
-                              }
-                            , { color = dimgray
-                              , name = "dimgray"
-                              }
-                            , { color = dimgrey
-                              , name = "dimgrey"
-                              }
-                            , { color = dodgerblue
-                              , name = "dodgerblue"
-                              }
-                            , { color = firebrick
-                              , name = "firebrick"
-                              }
-                            , { color = floralwhite
-                              , name = "floralwhite"
-                              }
-                            , { color = forestgreen
-                              , name = "forestgreen"
-                              }
-                            , { color = fuchsia
-                              , name = "fuchsia"
+                            , { color = whitesmoke
+                              , name = "whitesmoke"
                               }
                             , { color = gainsboro
                               , name = "gainsboro"
                               }
-                            , { color = ghostwhite
-                              , name = "ghostwhite"
+                            , { color = lightgray
+                              , name = "lightgray / lightgrey"
                               }
-                            , { color = gold
-                              , name = "gold"
+                            , { color = silver
+                              , name = "silver"
                               }
-                            , { color = goldenrod
-                              , name = "goldenrod"
+                            , { color = darkgray
+                              , name = "darkgray / darkgrey"
                               }
                             , { color = gray
-                              , name = "gray"
+                              , name = "gray / grey"
                               }
-                            , { color = green
-                              , name = "green"
+                            , { color = dimgray
+                              , name = "dimgray / dimgrey"
                               }
-                            , { color = greenyellow
-                              , name = "greenyellow"
+                            , { color = black
+                              , name = "black"
                               }
-                            , { color = grey
-                              , name = "grey"
-                              }
-                            , { color = honeydew
-                              , name = "honeydew"
-                              }
-                            , { color = hotpink
-                              , name = "hotpink"
-                              }
-                            , { color = indianred
-                              , name = "indianred"
-                              }
-                            , { color = indigo
-                              , name = "indigo"
-                              }
-                            , { color = ivory
-                              , name = "ivory"
-                              }
-                            , { color = khaki
-                              , name = "khaki"
-                              }
-                            , { color = lavender
-                              , name = "lavender"
-                              }
-                            , { color = lavenderblush
-                              , name = "lavenderblush"
-                              }
-                            , { color = lawngreen
-                              , name = "lawngreen"
-                              }
-                            , { color = lemonchiffon
-                              , name = "lemonchiffon"
-                              }
-                            , { color = lightblue
-                              , name = "lightblue"
-                              }
-                            , { color = lightcoral
-                              , name = "lightcoral"
-                              }
-                            , { color = lightcyan
-                              , name = "lightcyan"
-                              }
-                            , { color = lightgoldenrodyellow
-                              , name = "lightgoldenrodyellow"
-                              }
-                            , { color = lightgray
-                              , name = "lightgray"
-                              }
-                            , { color = lightgreen
-                              , name = "lightgreen"
-                              }
-                            , { color = lightgrey
-                              , name = "lightgrey"
-                              }
-                            , { color = lightpink
-                              , name = "lightpink"
-                              }
-                            , { color = lightsalmon
-                              , name = "lightsalmon"
-                              }
-                            , { color = lightseagreen
-                              , name = "lightseagreen"
-                              }
-                            , { color = lightskyblue
-                              , name = "lightskyblue"
-                              }
-                            , { color = lightslategray
-                              , name = "lightslategray"
-                              }
-                            , { color = lightslategrey
-                              , name = "lightslategrey"
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
                               }
                             , { color = lightsteelblue
                               , name = "lightsteelblue"
                               }
-                            , { color = lightyellow
-                              , name = "lightyellow"
+                            , { color = lightslategray
+                              , name = "lightslategray / lightslategrey"
+                              }
+                            , { color = slategray
+                              , name = "slategray / slategrey"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = red
+                              , name = "red"
+                              }
+                            , { color = orangered
+                              , name = "orangered"
+                              }
+                            , { color = darkorange
+                              , name = "darkorange"
+                              }
+                            , { color = orange
+                              , name = "orange"
+                              }
+                            , { color = gold
+                              , name = "gold"
+                              }
+                            , { color = yellow
+                              , name = "yellow"
+                              }
+                            , { color = chartreuse
+                              , name = "chartreuse"
                               }
                             , { color = lime
                               , name = "lime"
                               }
-                            , { color = limegreen
-                              , name = "limegreen"
+                            , { color = springgreen
+                              , name = "springgreen"
                               }
-                            , { color = linen
-                              , name = "linen"
+                            , { color = cyan
+                              , name = "cyan / aqua"
+                              }
+                            , { color = deepskyblue
+                              , name = "deepskyblue"
+                              }
+                            , { color = blue
+                              , name = "blue"
                               }
                             , { color = magenta
-                              , name = "magenta"
+                              , name = "magenta / fuchsia"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = snow
+                              , name = "snow"
+                              }
+                            , { color = red
+                              , name = "red"
+                              }
+                            , { color = darkred
+                              , name = "darkred"
                               }
                             , { color = maroon
                               , name = "maroon"
                               }
-                            , { color = mediumaquamarine
-                              , name = "mediumaquamarine"
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
                               }
-                            , { color = mediumblue
-                              , name = "mediumblue"
+                            , { color = lightcoral
+                              , name = "lightcoral"
                               }
-                            , { color = mediumorchid
-                              , name = "mediumorchid"
+                            , { color = indianred
+                              , name = "indianred"
                               }
-                            , { color = mediumpurple
-                              , name = "mediumpurple"
+                            , { color = firebrick
+                              , name = "firebrick"
                               }
-                            , { color = mediumseagreen
-                              , name = "mediumseagreen"
+                            , { color = brown
+                              , name = "brown"
                               }
-                            , { color = mediumslateblue
-                              , name = "mediumslateblue"
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
                               }
-                            , { color = mediumspringgreen
-                              , name = "mediumspringgreen"
+                            , { color = rosybrown
+                              , name = "rosybrown"
                               }
-                            , { color = mediumturquoise
-                              , name = "mediumturquoise"
-                              }
-                            , { color = mediumvioletred
-                              , name = "mediumvioletred"
-                              }
-                            , { color = midnightblue
-                              , name = "midnightblue"
-                              }
-                            , { color = mintcream
-                              , name = "mintcream"
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
                               }
                             , { color = mistyrose
                               , name = "mistyrose"
+                              }
+                            , { color = salmon
+                              , name = "salmon"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = tomato
+                              , name = "tomato"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = lightsalmon
+                              , name = "lightsalmon"
+                              }
+                            , { color = darksalmon
+                              , name = "darksalmon"
+                              }
+                            , { color = coral
+                              , name = "coral"
+                              }
+                            , { color = orangered
+                              , name = "orangered"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = seashell
+                              , name = "seashell"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = chocolate
+                              , name = "chocolate"
+                              }
+                            , { color = sienna
+                              , name = "sienna"
+                              }
+                            , { color = saddlebrown
+                              , name = "saddlebrown"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = linen
+                              , name = "linen"
+                              }
+                            , { color = bisque
+                              , name = "bisque"
+                              }
+                            , { color = peachpuff
+                              , name = "peachpuff"
+                              }
+                            , { color = sandybrown
+                              , name = "sandybrown"
+                              }
+                            , { color = peru
+                              , name = "peru"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = darkorange
+                              , name = "darkorange"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = antiquewhite
+                              , name = "antiquewhite"
+                              }
+                            , { color = burlywood
+                              , name = "burlywood"
+                              }
+                            , { color = HslaColor.ColorName.tan
+                              , name = "tan"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = papayawhip
+                              , name = "papayawhip"
+                              }
+                            , { color = blanchedalmond
+                              , name = "blanchedalmond"
                               }
                             , { color = moccasin
                               , name = "moccasin"
@@ -408,152 +299,430 @@ view _ =
                             , { color = navajowhite
                               , name = "navajowhite"
                               }
-                            , { color = navy
-                              , name = "navy"
-                              }
-                            , { color = oldlace
-                              , name = "oldlace"
-                              }
-                            , { color = olive
-                              , name = "olive"
-                              }
-                            , { color = olivedrab
-                              , name = "olivedrab"
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
                               }
                             , { color = orange
                               , name = "orange"
                               }
-                            , { color = orangered
-                              , name = "orangered"
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
                               }
-                            , { color = orchid
-                              , name = "orchid"
+                            , { color = floralwhite
+                              , name = "floralwhite"
                               }
-                            , { color = palegoldenrod
-                              , name = "palegoldenrod"
-                              }
-                            , { color = palegreen
-                              , name = "palegreen"
-                              }
-                            , { color = paleturquoise
-                              , name = "paleturquoise"
-                              }
-                            , { color = palevioletred
-                              , name = "palevioletred"
-                              }
-                            , { color = papayawhip
-                              , name = "papayawhip"
-                              }
-                            , { color = peachpuff
-                              , name = "peachpuff"
-                              }
-                            , { color = peru
-                              , name = "peru"
-                              }
-                            , { color = pink
-                              , name = "pink"
-                              }
-                            , { color = plum
-                              , name = "plum"
-                              }
-                            , { color = powderblue
-                              , name = "powderblue"
-                              }
-                            , { color = purple
-                              , name = "purple"
-                              }
-                            , { color = rebeccapurple
-                              , name = "rebeccapurple"
-                              }
-                            , { color = red
-                              , name = "red"
-                              }
-                            , { color = rosybrown
-                              , name = "rosybrown"
-                              }
-                            , { color = royalblue
-                              , name = "royalblue"
-                              }
-                            , { color = saddlebrown
-                              , name = "saddlebrown"
-                              }
-                            , { color = salmon
-                              , name = "salmon"
-                              }
-                            , { color = sandybrown
-                              , name = "sandybrown"
-                              }
-                            , { color = seagreen
-                              , name = "seagreen"
-                              }
-                            , { color = seashell
-                              , name = "seashell"
-                              }
-                            , { color = sienna
-                              , name = "sienna"
-                              }
-                            , { color = silver
-                              , name = "silver"
-                              }
-                            , { color = skyblue
-                              , name = "skyblue"
-                              }
-                            , { color = slateblue
-                              , name = "slateblue"
-                              }
-                            , { color = slategray
-                              , name = "slategray"
-                              }
-                            , { color = slategrey
-                              , name = "slategrey"
-                              }
-                            , { color = snow
-                              , name = "snow"
-                              }
-                            , { color = springgreen
-                              , name = "springgreen"
-                              }
-                            , { color = steelblue
-                              , name = "steelblue"
-                              }
-                            , { color = HslaColor.ColorName.tan
-                              , name = "tan"
-                              }
-                            , { color = teal
-                              , name = "teal"
-                              }
-                            , { color = thistle
-                              , name = "thistle"
-                              }
-                            , { color = tomato
-                              , name = "tomato"
-                              }
-                            , { color = turquoise
-                              , name = "turquoise"
-                              }
-                            , { color = violet
-                              , name = "violet"
+                            , { color = oldlace
+                              , name = "oldlace"
                               }
                             , { color = wheat
                               , name = "wheat"
                               }
-                            , { color = white
-                              , name = "white"
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
                               }
-                            , { color = whitesmoke
-                              , name = "whitesmoke"
+                            , { color = goldenrod
+                              , name = "goldenrod"
+                              }
+                            , { color = darkgoldenrod
+                              , name = "darkgoldenrod"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = cornsilk
+                              , name = "cornsilk"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = gold
+                              , name = "gold"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = lemonchiffon
+                              , name = "lemonchiffon"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = palegoldenrod
+                              , name = "palegoldenrod"
+                              }
+                            , { color = khaki
+                              , name = "khaki"
+                              }
+                            , { color = darkkhaki
+                              , name = "darkkhaki"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = ivory
+                              , name = "ivory"
+                              }
+                            , { color = lightyellow
+                              , name = "lightyellow"
                               }
                             , { color = yellow
                               , name = "yellow"
                               }
+                            , { color = olive
+                              , name = "olive"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = beige
+                              , name = "beige"
+                              }
+                            , { color = lightgoldenrodyellow
+                              , name = "lightgoldenrodyellow"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
                             , { color = yellowgreen
                               , name = "yellowgreen"
+                              }
+                            , { color = olivedrab
+                              , name = "olivedrab"
+                              }
+                            , { color = darkolivegreen
+                              , name = "darkolivegreen"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = greenyellow
+                              , name = "greenyellow"
+                              }
+                            , { color = chartreuse
+                              , name = "chartreuse"
+                              }
+                            , { color = lawngreen
+                              , name = "lawngreen"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = honeydew
+                              , name = "honeydew"
+                              }
+                            , { color = lime
+                              , name = "lime"
+                              }
+                            , { color = green
+                              , name = "green"
+                              }
+                            , { color = darkgreen
+                              , name = "darkgreen"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = palegreen
+                              , name = "palegreen"
+                              }
+                            , { color = lightgreen
+                              , name = "lightgreen"
+                              }
+                            , { color = darkseagreen
+                              , name = "darkseagreen"
+                              }
+                            , { color = limegreen
+                              , name = "limegreen"
+                              }
+                            , { color = forestgreen
+                              , name = "forestgreen"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = mediumseagreen
+                              , name = "mediumseagreen"
+                              }
+                            , { color = seagreen
+                              , name = "seagreen"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = mintcream
+                              , name = "mintcream"
+                              }
+                            , { color = springgreen
+                              , name = "springgreen"
+                              }
+                            , { color = mediumspringgreen
+                              , name = "mediumspringgreen"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = aquamarine
+                              , name = "aquamarine"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = mediumaquamarine
+                              , name = "mediumaquamarine"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = turquoise
+                              , name = "turquoise"
+                              }
+                            , { color = mediumturquoise
+                              , name = "mediumturquoise"
+                              }
+                            , { color = lightseagreen
+                              , name = "lightseagreen"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = azure
+                              , name = "azure"
+                              }
+                            , { color = lightcyan
+                              , name = "lightcyan"
+                              }
+                            , { color = cyan
+                              , name = "cyan / aqua"
+                              }
+                            , { color = darkcyan
+                              , name = "darkcyan"
+                              }
+                            , { color = teal
+                              , name = "teal"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = paleturquoise
+                              , name = "paleturquoise"
+                              }
+                            , { color = darkslategray
+                              , name = "darkslategray / darkslategrey"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = darkturquoise
+                              , name = "darkturquoise"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = powderblue
+                              , name = "powderblue"
+                              }
+                            , { color = cadetblue
+                              , name = "cadetblue"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = lightblue
+                              , name = "lightblue"
+                              }
+                            , { color = skyblue
+                              , name = "skyblue"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = lightskyblue
+                              , name = "lightskyblue"
+                              }
+                            , { color = deepskyblue
+                              , name = "deepskyblue"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = steelblue
+                              , name = "steelblue"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = aliceblue
+                              , name = "aliceblue"
+                              }
+                            , { color = dodgerblue
+                              , name = "dodgerblue"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = cornflowerblue
+                              , name = "cornflowerblue"
+                              }
+                            , { color = royalblue
+                              , name = "royalblue"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = ghostwhite
+                              , name = "ghostwhite"
+                              }
+                            , { color = blue
+                              , name = "blue"
+                              }
+                            , { color = mediumblue
+                              , name = "mediumblue"
+                              }
+                            , { color = darkblue
+                              , name = "darkblue"
+                              }
+                            , { color = navy
+                              , name = "navy"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = lavender
+                              , name = "lavender"
+                              }
+                            , { color = midnightblue
+                              , name = "midnightblue"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = mediumslateblue
+                              , name = "mediumslateblue"
+                              }
+                            , { color = slateblue
+                              , name = "slateblue"
+                              }
+                            , { color = darkslateblue
+                              , name = "darkslateblue"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = mediumpurple
+                              , name = "mediumpurple"
+                              }
+                            , { color = blueviolet
+                              , name = "blueviolet"
+                              }
+                            , { color = rebeccapurple
+                              , name = "rebeccapurple"
+                              }
+                            , { color = indigo
+                              , name = "indigo"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = mediumorchid
+                              , name = "mediumorchid"
+                              }
+                            , { color = darkorchid
+                              , name = "darkorchid"
+                              }
+                            , { color = darkviolet
+                              , name = "darkviolet"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = magenta
+                              , name = "magenta / fuchsia"
+                              }
+                            , { color = darkmagenta
+                              , name = "darkmagenta"
+                              }
+                            , { color = purple
+                              , name = "purple"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = thistle
+                              , name = "thistle"
+                              }
+                            , { color = plum
+                              , name = "plum"
+                              }
+                            , { color = violet
+                              , name = "violet"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = orchid
+                              , name = "orchid"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = hotpink
+                              , name = "hotpink"
+                              }
+                            , { color = deeppink
+                              , name = "deeppink"
+                              }
+                            , { color = mediumvioletred
+                              , name = "mediumvioletred"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = lavenderblush
+                              , name = "lavenderblush"
+                              }
+                            , { color = pink
+                              , name = "pink"
+                              }
+                            , { color = lightpink
+                              , name = "lightpink"
+                              }
+                            , { color = crimson
+                              , name = "crimson"
+                              }
+                            , { color = HslaColor.ColorName.transparent
+                              , name = ""
+                              }
+                            , { color = palevioletred
+                              , name = "palevioletred"
                               }
                             ]
                     ]
                 ]
             ]
     }
+
+
+tableRow : { color : HslaColor, name : String } -> Html msg
+tableRow cl =
+    tr
+        [ css
+            [ backgroundColor (fromHslaColor cl.color)
+            , if (cl.color |> toHsla |> .lightness) > 0.55 then
+                color (hsl 0 0 0.2)
+
+              else
+                color (hsl 0 0 1)
+            ]
+        ]
+        [ td [] [ text cl.name ]
+        , td []
+            [ let
+                { hue, saturation, lightness } =
+                    toHsla cl.color
+              in
+              text (toCssString cl.color)
+            ]
+        ]
 
 
 fromHslaColor : HslaColor -> Color
